@@ -6,6 +6,11 @@
 //
 
 import Foundation
+import Combine
+
+final class ModelData: ObservableObject{
+    @Published var landmarks: [Landmark] = load("landmarkData")
+}
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
@@ -28,6 +33,4 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse (filename) as (T.self):\n(error)")
     }
 }
-
-var landmarks: [Landmark] = load("landmarkData")
 

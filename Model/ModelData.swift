@@ -11,6 +11,7 @@ import Combine
 final class ModelData: ObservableObject{
     @Published var landmarks: [Landmark] = load("landmarkData")
     var hikes: [Hike] = load("hikeData")
+    @Published var profile = Profile.default
     var categories: [String:[Landmark]]{
         Dictionary(
             grouping: landmarks,
